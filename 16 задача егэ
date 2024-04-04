@@ -1,0 +1,17 @@
+ var n: longint;
+i, count: integer;
+function F(n: longint): longint;
+  begin
+    if n = 0 
+      then F := 0
+    else if (((n mod 2) = 0) and (n > 0))
+      then F := F(n div 2)
+    else if ((n mod 2) <> 0) 
+      then F := 1 + F(n - 1);
+  end;
+begin
+  count := 0;
+  for i := 1 to 1000 do
+      if F(i) = 3 then count := count + 1;
+  writeln(count);
+end.
